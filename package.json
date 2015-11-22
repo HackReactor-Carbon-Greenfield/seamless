@@ -1,0 +1,24 @@
+{
+  "name": "hrr9-carbon",
+  "version": "0.1.0",
+  "description": "seam-carving application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon/issues"
+  },
+  "homepage": "https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jasmine": "^2.3.2",
+    "morgan": "^1.6.1"
+  }
+}

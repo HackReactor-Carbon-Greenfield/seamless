@@ -1,0 +1,70 @@
+<body>
+  <input type="file" id="imageLoader" name="imageLoader">
+  <canvas id="canvas"></canvas>
+  <script>
+    var imageLoader = document.getElementById('imageLoader');
+    imageLoader.addEventListener('change', handleImage, false);
+
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    var WIDTH, HEIGHT;
+
+    // event handler for image upload
+    function handleImage(event){
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);     
+
+      reader.onload = function(event){
+        var image = new Image();
+        image.src = event.target.result;
+
+        // execute when image finishes loading (async behavior)
+        image.onload = function(){
+          WIDTH = image.width;
+          HEIGHT = image.height;
+
+          // set dimensions of canvas to equal the size of the image
+          canvas.width = WIDTH;
+          canvas.height = HEIGHT;
+
+          // draw image to context
+          context.drawImage(image, 0, 0);
+          
+          // access data property, which contains [R0, G0, B0, A0, R1, G1, B1, A1, ..., Rn, Gn, Bn, An];
+          var data = context.getImageData(0, 0, WIDTH, HEIGHT).data;
+          var pixels = [];
+
+          // populate pixels array with objects, where each object is { r, g, b } for a pixel
+          for (var i = 0; i < data.length; i += 4) {
+            var pixel = { 
+              r: data[i], 
+              b: data[i + 1], 
+              g: data[i + 2] 
+            };
+            pixels.push(pixel);
+          }
+
+          pixels = arrayToMatrix(pixels, WIDTH);
+        };
+      };
+    }
+
+    var arrayToMatrix = function(array, width) {
+      var results = [[]];
+      var row = 0;
+      var col = 0;
+
+      for (var i = 0; i < array.length; i++) {
+        if (i % width === 0) {
+          results.push([]);
+          row++;
+          col = 0;
+        }
+        results[row][col++] = array[i];
+      }
+
+      return results;
+    };
+  </script>
+</body>

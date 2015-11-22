@@ -1,0 +1,10 @@
+node_modules/
+bower_components/
+*.log
+
+build/
+dist/
+
+.idea/
+.floo
+.flooignore
