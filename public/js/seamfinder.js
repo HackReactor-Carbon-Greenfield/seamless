@@ -87,11 +87,3 @@ var randomEnergy = function(width, height) {
   }
   return energy;
 };
-
-// var energy = randomEnergy(2000, 2000);
-// for (var i = 0; i < 10; i++) {
-//   var seam = findVerticalSeam(energy);
-// }
-// console.log('---');
-// console.log(energy);
-// console.log(seam);
