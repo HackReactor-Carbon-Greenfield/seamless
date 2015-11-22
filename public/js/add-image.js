@@ -59,9 +59,6 @@
   var horizontalSlider = document.querySelector('#slider-horizontal');
   var verticalSlider = document.querySelector('#slider-vertical');
 
-  // horizontalSlider.defaultValue = 100;
-  // verticalSlider.defaultValue = 100;
-
   addEventHandler(horizontalSlider, 'input', onSlider);
   addEventHandler(verticalSlider, 'input', onSlider);
 
@@ -73,6 +70,7 @@
   addEventHandler(inputHeight, 'input', onInputInput);
 
   /* 
+    HELPER FUNCTIONS BELOW.
   */
 
   // Displays the seam to be removed.
