@@ -13,4 +13,4 @@ app.get('*', function(req, res) {
 
 app.set('port', process.env.PORT || 8000);
 
-var server = app.listen(app.get('port'));
+app.listen(app.get('port'));
