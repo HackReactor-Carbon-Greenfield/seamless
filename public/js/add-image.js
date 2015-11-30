@@ -69,6 +69,10 @@
   addEventHandler(inputWidth, 'input', onInputInput);
   addEventHandler(inputHeight, 'input', onInputInput);
 
+  //Save current canvas to firebase
+   var save = document.querySelector('#save');
+  addEventHandler(save, 'click', onSaveClick);
+
   /* 
     HELPER FUNCTIONS BELOW.
   */
@@ -327,4 +331,23 @@
     };
   };
 
+// Saving functions
+function saveToFirebase(imageData){
+    var pic = ref.child('pics');
+    var imagePng = canvas.toDataURL('image/png')
+    
+    ref.onAuth(function(authData){
+      var newPicRef = pic.push({
+                          uid: getUid(authData),
+                          name: getName(authData),
+                          pic: imagePng,
+                          time: Date.now()
+      });
+    });
+};
+
+  function onSaveClick(){
+    var imageData = context.getImageData(0,0,canvas.width, canvas.height); 
+    saveToFirebase(imageData.data)
+    };
 })();

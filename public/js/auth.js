@@ -6,6 +6,12 @@ var getName = function(authData){
   return authData.google.displayName;
 };
 
+var getUid = function(authData){
+  console.log('getUid Auth')
+  return authData.uid;
+};
+
+
 var login = function(){
   ref.authWithOAuthPopup('google',function(error, authData) {
     if (error) {
@@ -14,7 +20,6 @@ var login = function(){
       console.log('Authenticated successfully', authData.uid);
       if(authData && isNewUser){
         ref.child('users').child(authData.uid).set({
-        provider: authData.provider,
         name: getName(authData)
         })
       }
@@ -27,12 +32,9 @@ var logout = function(){
   ref.unauth();
 };
 
-function authDataCallback(authData) {
-  if (authData) {
-    document.getElementById('login').hide;
+var logout = function(){
+  ref.unauth();
+  console.log('logged out')
+};
 
-    console.log('User ' + authData.uid + ' is logged in with ' + authData.provider);
-  } else {
-    console.log('Auth data not found');
-  }
-}
+
