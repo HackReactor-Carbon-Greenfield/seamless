@@ -8,6 +8,10 @@
   margin-top: 13%;
 }
 
+.card .card-image img {
+  width: initial;
+}
+
 canvas {
   box-shadow: none; 
   border: 2px dashed #aaa;

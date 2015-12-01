@@ -6,6 +6,7 @@ module.exports = function(app, express) {
   app.use(morgan('dev'));
 
   var router = express.Router();
+
   router.route('/api')
 
     .get(function(req, res) {
