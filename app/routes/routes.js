@@ -6,7 +6,7 @@ module.exports = function(app, express) {
   app.use(morgan('dev'));
 
   var router = express.Router();
-  router.route('/')
+  router.route('/api')
 
     .get(function(req, res) {
       res.sendFile(path.join(__dirname + '/../../public/index.html'));
