@@ -6,78 +6,92 @@
     <title>Seamless</title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   </head>
 
   <body>
+    <div class='container'>
+      <div class="row">
 
-    <div class="header">
-      <div class="title">
-        Seamless<span class="description"> - content aware, image-resizing</span>
-      </div>
-    </div>
+        <div class="col l3"><!-- start column 1 -->
+          <!-- navbar -->
+          <div></div>
+         <div>
+         <ul id="slide-out" class="side-nav fixed">
+            <li style = "padding: 70px 0; background-color: #417c81; color: #fff"><h4>Seam<b>less</b></h4></li>
+            <li><a href="#!" class="waves-effect waves-light">About</a></li>
+            <li><a href="#!" class="waves-effect waves-light">Gallery</a></li>
+            <li><a href="#!" class="waves-effect waves-light" onclick="login()">Sign in</a></li>
+          </ul>
+          </div>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div> <!--end column 1 -->
 
-    <div class="container">
-      <table>
-        <tr>
-          <td>
-            <!-- <input type="text" class="url" placeholder="Paste url then hit enter"> -->
-            <canvas class="border"></canvas>
-          </td>
-          <td><input id="slider-vertical" type="range" name="points" value=100 min="0" max="100"></td>
-        </tr>
-        <tr>
-          <td class="slider-cell"><input id="slider-horizontal" type="range" name="points" value=100 min="0" max="100"></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="inputs">
-              <div id="height">
-                <span>height: </span><input id="input-height" type="number">
-              </div>
-              <div id="width">
-                <span>width: </span><input id="input-width" type="number">
-              </div>
+
+
+        <div class="col m12 l9"> <!-- start column 2 -->
+
+          <!-- App card -->
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light center">
+              <canvas></canvas>
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="btn">
-              Resize
+
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
+              <form action="#">
+              <label>Height</label>
+                  <p class="range-field">
+                    <input type="range" name='points' id="slider-vertical" min="0" max="100" />
+                  </p>
+                  <label>Width</label>
+                  <p class="range-field">
+                    <input type="range" name='points' id="slider-horizontal" min="0" max="100" />
+                  </p>
+                </form>
+                <div class="card-action">
+                  <p><a class="waves-effect waves-light btn-flat right">Done</a></p>
+                  <p><a class="waves-effect waves-light btn-flat right">Undo</a></p>
+                </div>
             </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <button id='login' type='button' onclick="login()">Login</button>
-    <button id='logout' type='button' onclick="logout()">Logout</button>
-    <button id='save' type='button' onClick="saveToFirebase()">Save</button>
-    <button id='undo' type='button'>Undo</button>
-    <button id='gallery' type='button' onClick="retFromFirebase()">Gallery</button>
 
-    <div class="footer">
-      <div class="instructions">
-        (1) Drag an image into the box. (2) Use the sliders or input boxes to set the new dimensions. (3) Click 'Resize'.
-      </div>
-    </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Instructions<i class="material-icons right">close</i></span>
+              <ol>
+                <li>Uploading an image is easy. Select a file on your computer and drag it into the outlined area marked 'drag and drop here'.</li>
+                <li>Use the <i>height</i> and <i>width</i> sliders to select a new image size!</li>
+                <li>When you're ready, click 'Done' to watch your image resized.</li>
+              </ol>
+            </div>
 
+          </div><!-- End Card -->
 
-  <a href="https://github.com/HackReactor-Carbon-Greenfield/seamless"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-      
+        </div><!-- End Column 2 -->
+      </div><!-- End Row-->
+    </div> <!-- End Container -->
 
-    <!--main scripts-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src="js/auth.js"></script>
-    <!--scripts for handling image uploading-->
-    <script src="js/imageTransfers.js"></script>
-    <script src="js/seamfinder.js"></script>
-    <script src="js/seamremove.js"></script>
-    <script src="js/energy-function.js"></script>
-    <script src="js/resize.js"></script>
-    <script src="js/add-image.js"></script>
+  <!--main scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="js/auth.js"></script>
+  <!--hamburger menu hack -->
+  <script>
+    (function($){
+      $(function(){
+        $('.button-collapse').sideNav();
+      }); // end of document ready
+    })(jQuery)
+  </script>
+  <!--scripts for handling image uploading-->
+
+  <script src="js/seamfinder.js"></script>
+  <script src="js/seamremove.js"></script>
+  <script src="js/energy-function.js"></script>
+  <script src="js/resize.js"></script>
+  <script src="js/add-image.js"></script>
 
   </body>
 </html>
