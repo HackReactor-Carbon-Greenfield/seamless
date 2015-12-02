@@ -35,29 +35,48 @@
 
 <!------------ App card ------------>
           <div class="card">
-            <div class="card-image waves-effect waves-block waves-light center">
+            <div class="row card-image waves-effect waves-block waves-light center">
               <canvas></canvas>
             </div>
 
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>
               <form action="#">
-              <label>Height</label>
-                  <input id="input-height" type="number">
-                  <p class="range-field">
-                    <input type="range" name='points' id="slider-vertical" min="0" max="100" />
-                  </p>
-                  <label>Width</label>
-                  <input id="input-width" type="number">
-                  <p class="range-field">
-                    <input type="range" name='points' id="slider-horizontal" min="0" max="100" />
-                  </p>
-                </form>
-                <div class="card-action">
-                  <p><a id='done' class="waves-effect waves-light btn-flat right">Done</a></p>
-                  <p><a id="save" class="waves-effect waves-light btn-flat right">Save</a></p>
-                  <p><a id="undo" class="waves-effect waves-light btn-flat right">Undo</a></p>
+
+                <label>Height</label>
+                <div class="row">
+
+                  <div class="col m7 l7">
+                    <p class="range-field">
+                      <input type="range" name='points' id="slider-vertical" min="0" max="100" />
+                    </p>
+                  </div>
+
+                  <div class="col m2 l2">
+
+                    <input id="input-height" type="number" style="margin-top: -40px;">
+                  </div>
+
                 </div>
+                <label>Width</label>
+                <div class="row">
+                  <div class="col m7 l7">
+                    <p class="range-field">
+                      <input type="range" name='points' id="slider-horizontal" min="0" max="100" />
+                    </p>
+                  </div>
+                  <div class="col m2 l2">
+                    <input id="input-width" type="number" style="margin-top: -40px;">
+                  </div>
+                </div>
+
+              </form>
+
+              <div class="card-action">
+                <p><a id='done' class="waves-effect waves-light btn-flat right">Done</a></p>
+                <p><a id="save" class="waves-effect waves-light btn-flat right">Save</a></p>
+                <p><a id="undo" class="waves-effect waves-light btn-flat right">Undo</a></p>
+              </div>
             </div>
 
             <div class="card-reveal">
