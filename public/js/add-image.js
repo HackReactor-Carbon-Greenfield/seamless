@@ -47,7 +47,7 @@
   addEventHandler(canvas, 'drop', onDrop);
   // addEventHandler(document.querySelector('.url'), 'drop', onDrop);
   // button event handler
-  addEventHandler(document.querySelector('.btn'), 'click', onButtonClick);
+  addEventHandler(document.querySelector('#done'), 'click', onButtonClick);
 
   // url event handler
   // addEventHandler(document.querySelector('.url'), 'change', urlOnLoadEnd);
