@@ -8,9 +8,9 @@
 
 ## Team
 
-  - __Product Owner__: Michael Kim
-  - __Scrum Master__: Victor York
-  - __Development Team Members__: Brian Kustra, Anthony Mullins
+  - __Product Owner__: Leslie Pajuelo
+  - __Scrum Master__: Justin Zimmerman
+  - __Development Team Members__: Robert Bowie, Nick Papayiannakis
 
 ## Table of Contents
 

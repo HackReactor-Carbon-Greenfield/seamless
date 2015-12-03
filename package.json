@@ -1,21 +1,21 @@
 {
-  "name": "hrr9-carbon",
+  "name": "Seamless",
   "version": "0.1.0",
   "description": "seam-carving application",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon.git"
+    "url": "git+https://github.com/HRR9-Helium/seamless.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon/issues"
+    "url": "https://github.com/HRR9-Helium/seamless/issues"
   },
-  "homepage": "https://github.com/HackReactor-Carbon-Greenfield/2015-10-greenfield-carbon#readme",
+  "homepage": "https://github.com/HRR9-Helium/seamless#readme",
   "dependencies": {
     "express": "^4.13.3",
     "jasmine": "^2.3.2",

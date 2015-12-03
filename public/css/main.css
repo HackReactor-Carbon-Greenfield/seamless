@@ -1,207 +1,63 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/*-----------------------------------------------------------------------------
+/
+/ BASE
+/
+/-----------------------------------------------------------------------------*/
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+ body {
+  background-color: #fff;
+ }
+
+ol > li {
+  margin-bottom: 10px;
 }
 
-/* --- END RESET --- */
+/*-----------------------------------------------------------------------------
+/
+/ LAYOUT
+/
+/-----------------------------------------------------------------------------*/
 
-* {
-  box-sizing: border-box;
+
+
+/*-----------------------------------------------------------------------------
+/
+/ MODULE
+/
+/-----------------------------------------------------------------------------*/
+
+.side-nav li:hover {
+  background-color: #e6ebe0;
 }
 
-.border {
-  border: 2px solid black;
+#mainlogo {
+  padding: 70px 0;
+  background-color: #FE5F55;
+  color: #EEF5DB;
 }
 
-table {
-  overflow: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-#slider-horizontal {
-  width: 300px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  transform: rotate(180deg);
-}
-
-#slider-vertical {
-  width: 155px;
-  top: 75px;
-  position: absolute;
-  margin-left: 20px;
-  transform: translateX(-50%) rotate(270deg);
-}
-
-.border {
-  border: 2px solid black;
-}
-
-#height {
-  float: left;
-}
-
-#width {
-  float: right; 
-}
-
-.header {
-  height: 60px;
-  background-color: #E0E0E0 ;
-  box-shadow: 0 0 10px 2px rgba(0,0,0,0.3);
-}
-
-.footer {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  height: 60px;
+.card {
+  background-color: #fff;
   width: 100%;
-  background-color: #E0E0E0 ;
+  padding: 40px 10px 10px 10px;
+  margin-top: 13%;
 }
 
-.title {
-  font: 500 36px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  position: absolute;
-  padding-top: 5px;
-  margin-left: 15px;
-  color: black
+.card .card-image img {
+  width: initial;
 }
 
-.instructions {
-  font: 500 16px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: black;
-  padding-top: 18px;
-  padding-left: 15px;
-  width: 100%;
+canvas {
+  border: 2px dashed #D6D1B1;
+  border-radius: 10px;
 }
 
-.description {
-  font-size: 24px;
-}
+/*-----------------------------------------------------------------------------
+/
+/ STATE
+/
+/-----------------------------------------------------------------------------*/
 
-.inputs {
-  width: 250px;
-  margin: auto;
-  font: 400 18px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.inputs input {
-  outline: none;
-  width: 50px;
-}
-
-.btn {
-  background: #1193F5;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  width: 100px;
-  cursor: pointer;
-  margin: auto;
-  margin-top: 20px;
-}
-
-.btn:hover {
-  background: #00A7F6;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
-
-.url {
-  position: absolute;
-  top: 90px;
-  left: 83px;
-  outline: none;
-}
-
-input[type=range]{
-    -webkit-appearance: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    width: 300px;
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #F6402B;
-    margin-top: -4px;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+.active {
+  background-color: #e6ebe0;
 }
