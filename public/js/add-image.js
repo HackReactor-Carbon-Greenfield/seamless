@@ -351,12 +351,16 @@
       var imagePng = canvas.toDataURL('image/png')
       
       ref.onAuth(function(authData){
-        var newPicRef = pic.push({
+        if(!authData){
+          $('#notSignedIn').openModal();
+        } else {
+          var newPicRef = pic.push({
                             uid: getUid(authData),
                             name: getName(authData),
                             pic: imagePng,
                             time: Date.now()
-        });
+          });
+        };
       });
   };
 
