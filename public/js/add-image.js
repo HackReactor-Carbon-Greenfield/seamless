@@ -10,6 +10,7 @@
    by the use.
    */
   var image;
+  var origImg;
   var canvas = document.querySelector('canvas');
   var context = canvas.getContext('2d');
   var pixels;
@@ -17,6 +18,8 @@
   var targetHeight;
   var WIDTH = 0;
   var HEIGHT = 0;
+  var origWidth;
+  var origHeight;
 
   context.font = "20px Helvetica";
   context.fillText('Drag an image', 80, 80);
@@ -66,12 +69,17 @@
   var inputHeight = document.querySelector('#input-height');
 
   // update sliders when value is input into input fields
+  // REMOVED WHILE BUTTONS ARE NOT ON THE PAGE
   addEventHandler(inputWidth, 'input', onInputInput);
   addEventHandler(inputHeight, 'input', onInputInput);
 
   //Save current canvas to firebase
-   var save = document.querySelector('#save');
+  var save = document.querySelector('#save');
   addEventHandler(save, 'click', onSaveClick);
+
+  // Undo button
+  var undo = document.querySelector('#undo');
+  addEventHandler(undo, 'click', onUndoClick);
 
   /* 
     HELPER FUNCTIONS BELOW.
@@ -255,6 +263,9 @@
     WIDTH = image.width;
     HEIGHT = image.height;
 
+    // save original dimensions
+    origWidth = image.width;
+    origHeight = image.height;
     // set dimensions of canvas to equal the size of the image
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
@@ -278,6 +289,9 @@
     // access data property, which contains [R0, G0, B0, A0, R1, G1, B1, A1,
     // ..., Rn, Gn, Bn, An];
     var data = context.getImageData(0, 0, WIDTH, HEIGHT).data;
+
+
+    origImg = context.getImageData(0, 0, WIDTH, HEIGHT);
     pixels = [];
     // populate pixels array with objects, where each object is { r, g, b } for
     // a pixel. Removes the alpha data point by only incrementing i by 4.
@@ -331,23 +345,31 @@
     };
   };
 
-// Saving functions
-function saveToFirebase(imageData){
-    var pic = ref.child('pics');
-    var imagePng = canvas.toDataURL('image/png')
-    
-    ref.onAuth(function(authData){
-      var newPicRef = pic.push({
-                          uid: getUid(authData),
-                          name: getName(authData),
-                          pic: imagePng,
-                          time: Date.now()
+  // Saving functions
+  function saveToFirebase(imageData) {
+      var pic = ref.child('pics');
+      var imagePng = canvas.toDataURL('image/png')
+      
+      ref.onAuth(function(authData){
+        var newPicRef = pic.push({
+                            uid: getUid(authData),
+                            name: getName(authData),
+                            pic: imagePng,
+                            time: Date.now()
+        });
       });
-    });
-};
+  };
 
-  function onSaveClick(){
+  function onUndoClick() {
+    context.clearRect(0, 0, WIDTH, HEIGHT);
+    canvas.width = origWidth;
+    canvas.height = origHeight;
+    context.drawImage(image, 0, 0);
+    onImageLoad();
+  };
+
+  function onSaveClick() {
     var imageData = context.getImageData(0,0,canvas.width, canvas.height); 
-    saveToFirebase(imageData.data)
-    };
+    saveToFirebase(imageData.data);
+  };
 })();
