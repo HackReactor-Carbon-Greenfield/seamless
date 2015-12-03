@@ -5,7 +5,7 @@
 /-----------------------------------------------------------------------------*/
 
  body {
-  background-color: #D6D1B1;
+  background-color: #C7EFCF;
  }
 
 ol > li {
@@ -27,13 +27,12 @@ ol > li {
 /-----------------------------------------------------------------------------*/
 
 .side-nav {
-  background-color: #C7EFCF;
 }
 
 #mainlogo {
   padding: 70px 0;
   background-color: #FE5F55;
-  color: #EEF5DB
+  color: #EEF5DB;
 }
 
 .card {
