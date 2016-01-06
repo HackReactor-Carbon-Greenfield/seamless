@@ -1,4 +1,4 @@
-# Resize Magic.
+# Seamless
 
 > An implementation of the Seam Carving algorithm in JavaScript. Seam carving
    allows for smart resizing of images based on content. Instead of removing 
