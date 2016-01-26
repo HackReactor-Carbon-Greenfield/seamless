@@ -45,12 +45,9 @@
 
   // canvas event handler
   addEventHandler(canvas, 'drop', onDrop);
-  // addEventHandler(document.querySelector('.url'), 'drop', onDrop);
+
   // button event handler
   addEventHandler(document.querySelector('.btn'), 'click', onButtonClick);
-
-  // url event handler
-  // addEventHandler(document.querySelector('.url'), 'change', urlOnLoadEnd);
 
   // slider event handlers
   addEventHandler(document.querySelector('#slider-horizontal'), 'change', onSlider);
@@ -261,8 +258,6 @@
     // set dimensions of canvas to equal the size of the image
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
-
-    // document.querySelector('.url').style.display = 'none';
 
     horizontalSlider.style.width = WIDTH + 'px';
     verticalSlider.style.width = HEIGHT + 'px';
